@@ -9,5 +9,7 @@ public partial class DetailSummary
 
     public string? Detail { get; set; }
 
-    public virtual ICollection<ExperienceDatum> ExperienceData { get; set; } = new List<ExperienceDatum>();
+    public int ExperienceDataId { get; set; }
+
+    public virtual ExperienceDatum ExperienceData { get; set; } = null!;
 }

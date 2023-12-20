@@ -47,6 +47,12 @@ public partial class SqlContext : DbContext
             entity.Property(e => e.Detail)
                 .IsUnicode(false)
                 .HasColumnName("detail");
+            entity.Property(e => e.ExperienceDataId).HasColumnName("experienceDataId");
+
+            entity.HasOne(d => d.ExperienceData).WithMany(p => p.DetailSummaries)
+                .HasForeignKey(d => d.ExperienceDataId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DetailSummary_ExperienceData");
         });
 
         modelBuilder.Entity<EducationDatum>(entity =>
@@ -118,16 +124,6 @@ public partial class SqlContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("url");
-
-            entity.HasOne(d => d.DetailSumary).WithMany(p => p.ExperienceData)
-                .HasForeignKey(d => d.DetailSumaryId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ExperienceData_DetailSummary");
-
-            entity.HasOne(d => d.Skills).WithMany(p => p.ExperienceData)
-                .HasForeignKey(d => d.SkillsId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ExperienceData_Skills");
         });
 
         modelBuilder.Entity<ModalityTraining>(entity =>
@@ -207,9 +203,15 @@ public partial class SqlContext : DbContext
             entity.HasKey(e => e.SkillsId);
 
             entity.Property(e => e.SkillsId).HasColumnName("skillsId");
+            entity.Property(e => e.ExperienceDataId).HasColumnName("experienceDataId");
             entity.Property(e => e.Skill1)
                 .IsUnicode(false)
                 .HasColumnName("skill");
+
+            entity.HasOne(d => d.ExperienceData).WithMany(p => p.Skills)
+                .HasForeignKey(d => d.ExperienceDataId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Skills_ExperienceData");
         });
 
         modelBuilder.Entity<SummaryDatum>(entity =>

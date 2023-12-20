@@ -25,7 +25,7 @@ public partial class ExperienceDatum
 
     public int SkillsId { get; set; }
 
-    public virtual DetailSummary DetailSumary { get; set; } = null!;
+    public virtual ICollection<DetailSummary> DetailSummaries { get; set; } = new List<DetailSummary>();
 
-    public virtual Skill Skills { get; set; } = null!;
+    public virtual ICollection<Skill> Skills { get; set; } = new List<Skill>();
 }
