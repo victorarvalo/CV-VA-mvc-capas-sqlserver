@@ -1,4 +1,5 @@
 ﻿using DataLayout.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,30 @@ namespace DataLayout.AccesData.ExperienceData
             {
                 using (SqlContext sqlContext = new SqlContext())
                 {
-                    return sqlContext.ExperienceData.ToList();
+                    var result = sqlContext.ExperienceData
+                        .Include(d => d.DetailSummaries)
+                        .Include(s => s.Skills)
+                        .ToList();
+                    return result;
                 }
             }
             catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Task>? AddExperienceData(ExperienceDatum experienceDatum)
+        {
+            try
+            {
+                using(SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(experienceDatum);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
+                }
+            }catch (Exception)
             {
                 return null;
             }

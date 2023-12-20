@@ -1,8 +1,7 @@
-﻿using AutoMapper.Configuration.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace BusinessLayout.Models;
+namespace webApi.Models;
 
 public partial class Skill
 {
@@ -10,7 +9,7 @@ public partial class Skill
 
     public string? Skill1 { get; set; }
 
-    public int ExperienceDataId { get; set; }
+    //public int ExperienceDataId { get; set; }
 
     //public virtual ExperienceDatum ExperienceData { get; set; } = null!;
 }

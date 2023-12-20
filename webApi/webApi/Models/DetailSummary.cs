@@ -1,8 +1,7 @@
-﻿using AutoMapper.Configuration.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace BusinessLayout.Models;
+namespace webApi.Models;
 
 public partial class DetailSummary
 {
@@ -10,7 +9,7 @@ public partial class DetailSummary
 
     public string? Detail { get; set; }
 
-    public int ExperienceDataId { get; set; }
+    //public int ExperienceDataId { get; set; }
 
     //public virtual ExperienceDatum ExperienceData { get; set; } = null!;
 }
