@@ -23,5 +23,22 @@ namespace DataLayout.AccesData.PersonalReference
                 return null;
             }
         }
+
+        public async Task<Task>? AddPersonalReference(Models.PersonalReference personalReference)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(personalReference);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

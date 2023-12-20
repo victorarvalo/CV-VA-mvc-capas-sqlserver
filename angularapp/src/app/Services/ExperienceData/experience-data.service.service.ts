@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ExperienceDataServiceService {
 
-  private myAppUrl = "https://localhost:7211/"
+  private myAppUrl = "https://localhost:7175/"
   private myApiUrl = "api/ExperienceData"
   constructor(private http: HttpClient) { }
 

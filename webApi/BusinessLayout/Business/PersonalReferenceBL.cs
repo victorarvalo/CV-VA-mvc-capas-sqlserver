@@ -37,5 +37,35 @@ namespace BusinessLayout.Business
                 return null;
             }
         }
+
+        public async Task<Task>? AddPersonalReference(Models.PersonalReference personalReference)
+        {
+            try
+            {
+                accesData.PersonalReference.PersonalReferenceDL personalReferenceDL = new accesData.PersonalReference.PersonalReferenceDL();
+
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<Models.PersonalReference, dataModels.PersonalReference>();
+                });
+                IMapper mapper = config.CreateMapper();
+                dataModels.PersonalReference personalReference1 = mapper.Map<Models.PersonalReference, dataModels.PersonalReference>(personalReference);
+
+                var result = await personalReferenceDL.AddPersonalReference(personalReference1);
+
+                if (result != null)
+                {
+                    return Task.CompletedTask;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
