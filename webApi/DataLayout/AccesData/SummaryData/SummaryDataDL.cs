@@ -23,5 +23,22 @@ namespace DataLayout.AccesData.SummaryData
                 return null;
             }
         }
+
+        public async Task<Task>? AddSummaryData(SummaryDatum summaryDatum)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(summaryDatum);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

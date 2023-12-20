@@ -32,5 +32,36 @@ namespace BusinessLayout.Business
                 return null;
             }
         }
+
+        public async Task<Task>? AddSummaryData(Models.SummaryDatum summaryDatum)
+        {
+            try
+            {
+                accesData.SummaryData.SummaryDataDL summaryDataDL = new accesData.SummaryData.SummaryDataDL();
+
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<Models.Email, dataModels.Email>();
+                    cfg.CreateMap<Models.SummaryDatum, dataModels.SummaryDatum>();
+                });
+                IMapper mapper = config.CreateMapper();
+                dataModels.SummaryDatum summary = mapper.Map<Models.SummaryDatum, dataModels.SummaryDatum>(summaryDatum);
+
+                var result = await summaryDataDL.AddSummaryData(summary);
+
+                if (result != null)
+                {
+                    return Task.CompletedTask;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
