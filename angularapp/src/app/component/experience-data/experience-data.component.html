@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="titulo text-center">EXPERIENCIA</h5>
+      <table class="table" *ngFor="let data of listExperienceData;index as i">
+        <tr [ngStyle]="backgroundColor(i)"><td>{{data.startDate}} - {{data.finishDate}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i)"><td>&emsp;<b [ngStyle]="backgroundColor(i)">{{data.enterprise}}</b></td></tr>
+        <tr [ngStyle]="backgroundColor(i)"><td>&emsp;Teléfono: {{data.phone}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i)"><td>&emsp;URL: {{data.url}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i)"><td>&emsp;Cargo: {{data.position}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i)"><td>&emsp;{{data.summary}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i+1)" *ngFor="let detail of data.detailSummary;"><td>&emsp;-{{detail.detail}}</td></tr>
+        <tr [ngStyle]="backgroundColor(i)" *ngIf="data.skills!=null"><td>Logros:</td></tr>
+        <tr [ngStyle]="backgroundColor(i+1)" *ngFor="let skil of data.skills;"><td>&emsp;-{{skil.skil}}</td></tr>
+      </table>
+    </div>    
+</div>

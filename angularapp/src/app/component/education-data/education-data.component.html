@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="titulo text-center">EDUCACIÓN</h5>
+      <table class="table">
+        <tbody>
+            <tr *ngFor="let data of listEducationData;index as i">
+                <div class="row" [ngStyle]="backgroundColor(i)">
+                    <div class="col col-2"></div>
+                    <div class="col col-8 text-start"><b>{{data.institution}}</b></div>
+                    <div class="col col-2"></div>
+                </div>
+                <div class="row" [ngStyle]="backgroundColor(i)">
+                    <div class="col col-2"></div>
+                    <div class="col col-8">{{data.title}}</div>
+                    <div class="col col-2"></div>
+                </div>
+                <div class="row" [ngStyle]="backgroundColor(i)">
+                    <div class="col col-2"></div>
+                    <div class="col col-8 text-start">{{data.finishDate}}</div>
+                    <div class="col col-2"></div>
+                </div>
+                <div class="row" [ngStyle]="backgroundColor(i)">
+                    <div class="col col-2"></div>
+                    <div class="col col-8 text-start">{{data.summary}}</div>
+                    <div class="col col-2"></div>
+                </div>
+                <br>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>  

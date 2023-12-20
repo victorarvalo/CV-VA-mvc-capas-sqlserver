@@ -1,0 +1,26 @@
+
+<div class="container" style="background-color: #f7f8f8;">
+<div class="row justify-content-md-center">
+    <div class="col"></div>
+    <div class="col">
+        <svg-icon src="vic" [svgStyle]="{ 'width.px':90, 'height.px':90 }" [stretch]="true"></svg-icon>
+    </div>
+    <div class="col">
+        <div class="dropdown" style="top: 25px;">
+            <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu de Opciones
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="['PersonalData']">Datos Personales</a></li>
+                <li><a class="dropdown-item" [routerLink]="['Summary']">Objetivos</a></li>
+                <li><a class="dropdown-item" [routerLink]="['EducationData']">Educación</a></li>
+                <li><a class="dropdown-item" [routerLink]="['ExperienceData']">Experiencia</a></li>
+                <li><a class="dropdown-item" [routerLink]="['PersonalReference']">Referencias Personales</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" [routerLink]="['FullInformation']">Información Completa</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+</div>

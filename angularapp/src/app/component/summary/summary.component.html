@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngFor="let data of listSummaryData;index as i">
+            <div class="row"><div class="col text-center" [ngStyle]="backgroundColor(i)"><b>{{data.title}}</b></div></div>
+            <div class="row"><div class="col" [ngStyle]="backgroundColor(i)">{{data.data}}</div></div>
+            <br>
+        </div>
+    </div>    
+</div>    
+      
