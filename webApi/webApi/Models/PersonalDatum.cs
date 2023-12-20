@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayout.Models;
+using System;
 using System.Collections.Generic;
 
 namespace webApi.Models;
@@ -13,9 +14,9 @@ public partial class PersonalDatum
 
     public int? Age { get; set; }
 
-    public DateTime? BornDate { get; set; }
+    public string? BornDate { get; set; }
 
-    public DateTime? BornPlace { get; set; }
+    public string? BornPlace { get; set; }
 
     public string? IdDocument { get; set; }
 
@@ -23,5 +24,5 @@ public partial class PersonalDatum
 
     public string? CelPhone { get; set; }
 
-    public string? Email { get; set; }
+    public virtual ICollection<Email> Emails { get; set; } = new List<Email>();
 }

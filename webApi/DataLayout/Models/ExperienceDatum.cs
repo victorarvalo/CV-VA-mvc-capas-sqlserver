@@ -21,10 +21,6 @@ public partial class ExperienceDatum
 
     public DateTime FinishDate { get; set; }
 
-    public int DetailSumaryId { get; set; }
-
-    public int SkillsId { get; set; }
-
     public virtual ICollection<DetailSummary> DetailSummaries { get; set; } = new List<DetailSummary>();
 
     public virtual ICollection<Skill> Skills { get; set; } = new List<Skill>();

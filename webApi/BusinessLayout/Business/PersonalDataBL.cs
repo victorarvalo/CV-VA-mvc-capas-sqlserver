@@ -16,6 +16,7 @@ namespace BusinessLayout.Business
                 {
                     var config = new MapperConfiguration(cfg =>
                     {
+                        cfg.CreateMap<dataModels.Email, Models.Email>();
                         cfg.CreateMap<dataModels.PersonalDatum, Models.PersonalDatum>();
                     });
 
@@ -28,6 +29,37 @@ namespace BusinessLayout.Business
                 }
                 
             }catch (Exception )
+            {
+                return null;
+            }
+        }
+
+        public async Task<Task>? AddPersonalData(Models.PersonalDatum personalDatum)
+        {
+            try
+            {
+                accesData.PersonalData.PersonalDataDL personalDataDL = new accesData.PersonalData.PersonalDataDL();
+
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<Models.Email, dataModels.Email>();
+                    cfg.CreateMap<Models.PersonalDatum, dataModels.PersonalDatum>();
+                });
+                IMapper mapper = config.CreateMapper();
+                dataModels.PersonalDatum personalDatum1 = mapper.Map<Models.PersonalDatum,dataModels.PersonalDatum>(personalDatum);
+
+                var result = await personalDataDL.AddPersonalData(personalDatum1);
+
+                if (result != null)
+                {
+                    return Task.CompletedTask;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception )
             {
                 return null;
             }

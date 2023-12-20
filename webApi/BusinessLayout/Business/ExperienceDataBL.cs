@@ -49,6 +49,7 @@ namespace BusinessLayout.Business
                 });
                 IMapper mapper = config.CreateMapper();
                 dataModels.ExperienceDatum experienceDatums = mapper.Map<Models.ExperienceDatum,dataModels.ExperienceDatum>(experienceData);
+                
                 var result = await experienceDataDL.AddExperienceData(experienceDatums);
                 
                 if (result != null)

@@ -19,6 +19,8 @@ public partial class SqlContext : DbContext
 
     public virtual DbSet<EducationDatum> EducationData { get; set; }
 
+    public virtual DbSet<Email> Emails { get; set; }
+
     public virtual DbSet<ExperienceDatum> ExperienceData { get; set; }
 
     public virtual DbSet<ModalityTraining> ModalityTrainings { get; set; }
@@ -92,12 +94,28 @@ public partial class SqlContext : DbContext
                 .HasConstraintName("FK_EducationData_TypeTraining");
         });
 
+        modelBuilder.Entity<Email>(entity =>
+        {
+            entity.ToTable("emails");
+
+            entity.Property(e => e.EmailId).HasColumnName("emailId");
+            entity.Property(e => e.Email1)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.PersonalDataId).HasColumnName("personalDataId");
+
+            entity.HasOne(d => d.PersonalData).WithMany(p => p.Emails)
+                .HasForeignKey(d => d.PersonalDataId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_emails_PersonalData");
+        });
+
         modelBuilder.Entity<ExperienceDatum>(entity =>
         {
             entity.HasKey(e => e.ExperienceDataId);
 
             entity.Property(e => e.ExperienceDataId).HasColumnName("experienceDataId");
-            entity.Property(e => e.DetailSumaryId).HasColumnName("detailSumaryId");
             entity.Property(e => e.Enterprise)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -113,7 +131,6 @@ public partial class SqlContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("position");
-            entity.Property(e => e.SkillsId).HasColumnName("skillsId");
             entity.Property(e => e.StartDate)
                 .HasColumnType("datetime")
                 .HasColumnName("startDate");
@@ -151,16 +168,13 @@ public partial class SqlContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("bornDate");
             entity.Property(e => e.BornPlace)
-                .HasColumnType("datetime")
+                .HasMaxLength(255)
+                .IsUnicode(false)
                 .HasColumnName("bornPlace");
             entity.Property(e => e.CelPhone)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("celPhone");
-            entity.Property(e => e.Email)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("email");
             entity.Property(e => e.IdDocument)
                 .HasMaxLength(255)
                 .IsUnicode(false)
