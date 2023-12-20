@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using business = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
@@ -8,21 +7,21 @@ namespace webApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SummaryDataController : ControllerBase
+    public class ModalityTrainingController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> AddSummaryData([FromBody] Models.SummaryDatum summary)
+        public async Task<IActionResult> AddModalityTraining([FromBody] Models.ModalityTraining modalityTraining)
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
+            business.ModalityTrainingBL modalityTrainingBL = new business.ModalityTrainingBL();
 
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Models.SummaryDatum, modelsBusiness.SummaryDatum>();
+                cfg.CreateMap<Models.ModalityTraining, modelsBusiness.ModalityTraining>();
             });
             IMapper mapper = config.CreateMapper();
-            var summaryDatum = mapper.Map<Models.SummaryDatum, modelsBusiness.SummaryDatum>(summary);
+            var modality = mapper.Map<Models.ModalityTraining, modelsBusiness.ModalityTraining>(modalityTraining);
 
-            var result = await summaryDataBL.AddSummaryData(summaryDatum);
+            var result = await modalityTrainingBL.AddModalityTraining(modality);
 
             if (result != null)
             {
@@ -35,11 +34,11 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSummaryDataAsync()
+        public async Task<IActionResult> GetModalityTrainingAsync()
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
+            business.ModalityTrainingBL modalityTrainingBL = new business.ModalityTrainingBL();
 
-            var result = summaryDataBL.GetSummaryData();
+            var result = modalityTrainingBL.GetModalityTraining();
 
             if (result != null)
             {

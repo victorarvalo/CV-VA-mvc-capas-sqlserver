@@ -16,7 +16,27 @@ namespace DataLayout.AccesData.EducationData
             {
                 using (SqlContext db = new SqlContext())
                 {
-                    return db.EducationData.ToList();
+                    return db.EducationData
+                        .Include(m => m.ModalityTraining)
+                        .Include(t => t.TypeTraining)
+                        .ToList();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Task>? AddEducationData(EducationDatum educationDatum)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(educationDatum);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
                 }
             }
             catch (Exception)

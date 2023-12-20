@@ -19,5 +19,46 @@ namespace DataLayout.AccesData.TypeTraining
             }
             catch (Exception) { return null; }
         }
+
+        public async Task<Task>? AddTypeTraining(Models.TypeTraining typeTraining)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(typeTraining);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public bool?TypeTrainingExist(int typeTrainingId)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    if (sqlContext.TypeTrainings.Any(x => x.TypeTrainingId.Equals(typeTrainingId)))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
+
+    
 }

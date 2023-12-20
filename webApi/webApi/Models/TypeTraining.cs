@@ -9,5 +9,5 @@ public partial class TypeTraining
 
     public string? TrainingType { get; set; }
 
-    public virtual ICollection<EducationDatum> EducationData { get; set; } = new List<EducationDatum>();
+    //public virtual ICollection<EducationDatum> EducationData { get; set; } = new List<EducationDatum>();
 }

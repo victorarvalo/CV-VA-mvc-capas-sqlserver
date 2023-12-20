@@ -15,13 +15,13 @@ public partial class EducationDatum
 
     public string? Institution { get; set; }
 
-    public DateTime? StartDate { get; set; }
+    public string? StartDate { get; set; }
 
-    public DateTime? FinishDate { get; set; }
+    public string? FinishDate { get; set; }
 
     public string? Summary { get; set; }
 
-    public virtual ModalityTraining ModalityTraining { get; set; } = null!;
+    //public virtual ModalityTraining ModalityTraining { get; set; } = null!;
 
-    public virtual TypeTraining TypeTraining { get; set; } = null!;
+    //public virtual TypeTraining TypeTraining { get; set; } = null!;
 }

@@ -8,21 +8,20 @@ namespace webApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SummaryDataController : ControllerBase
+    public class TypeTrainingController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> AddSummaryData([FromBody] Models.SummaryDatum summary)
+        public async Task<IActionResult> AddTypeTraining([FromBody] Models.TypeTraining typeTraining)
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
-
+            business.TypeTrainingBL typeTrainingBL = new business.TypeTrainingBL();
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Models.SummaryDatum, modelsBusiness.SummaryDatum>();
+                cfg.CreateMap<Models.TypeTraining, modelsBusiness.TypeTraining>();
             });
             IMapper mapper = config.CreateMapper();
-            var summaryDatum = mapper.Map<Models.SummaryDatum, modelsBusiness.SummaryDatum>(summary);
+            var typeTraining1 = mapper.Map<Models.TypeTraining, modelsBusiness.TypeTraining>(typeTraining);
 
-            var result = await summaryDataBL.AddSummaryData(summaryDatum);
+            var result = await typeTrainingBL.AddTypeTraining(typeTraining1);
 
             if (result != null)
             {
@@ -35,11 +34,11 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSummaryDataAsync()
+        public async Task<IActionResult> GetTypeTrainingAsync()
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
+            business.TypeTrainingBL typeTrainingBL = new business.TypeTrainingBL();
 
-            var result = summaryDataBL.GetSummaryData();
+            var result = typeTrainingBL.GetTypeTraining();
 
             if (result != null)
             {

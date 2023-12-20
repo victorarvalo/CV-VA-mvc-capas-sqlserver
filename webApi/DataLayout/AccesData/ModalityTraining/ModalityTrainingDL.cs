@@ -24,5 +24,43 @@ namespace DataLayout.AccesData.ModalityTraining
                 return null;
             }
         }
+
+        public async Task<Task>? AddModalityTraining(Models.ModalityTraining modalityTraining)
+        {
+            try
+            {
+                using (SqlContext sqlContext = new SqlContext())
+                {
+                    await sqlContext.AddAsync(modalityTraining);
+                    await sqlContext.SaveChangesAsync();
+                    return Task.CompletedTask;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public bool? ModalityTrainingExist(int modalityTrainingId)
+        {
+            try
+            {
+                using(SqlContext sqlContext = new SqlContext())
+                {
+                    if(sqlContext.ModalityTrainings.Any(x => x.ModalityTrainingId.Equals(modalityTrainingId)))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

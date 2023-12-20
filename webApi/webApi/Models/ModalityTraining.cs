@@ -9,5 +9,5 @@ public partial class ModalityTraining
 
     public string? Modality { get; set; }
 
-    public virtual ICollection<EducationDatum> EducationData { get; set; } = new List<EducationDatum>();
+    //public virtual ICollection<EducationDatum> EducationData { get; set; } = new List<EducationDatum>();
 }
