@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { ExperienceDataComponent } from './component/experience-data/experience-
 import { PersonalReferenceDataComponent } from './component/personal-reference-data/personal-reference-data.component';
 import { NavComponent } from './component/nav/nav.component';
 import { FullinformationComponent } from './component/fullinformation/fullinformation.component';
+
+import localeES from '@angular/common/locales/es'
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeES,'es')
 
 @NgModule({
   declarations: [
@@ -27,7 +31,7 @@ import { FullinformationComponent } from './component/fullinformation/fullinform
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, AngularSvgIconModule.forRoot() 
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue:'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

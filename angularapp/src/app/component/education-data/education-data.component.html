@@ -16,7 +16,7 @@
                 </div>
                 <div class="row" [ngStyle]="backgroundColor(i)">
                     <div class="col col-2"></div>
-                    <div class="col col-8 text-start">{{data.finishDate}}</div>
+                    <div class="col col-8 text-start">{{data.finishDate | date:"MMM-YYYY"}}</div>
                     <div class="col col-2"></div>
                 </div>
                 <div class="row" [ngStyle]="backgroundColor(i)">
