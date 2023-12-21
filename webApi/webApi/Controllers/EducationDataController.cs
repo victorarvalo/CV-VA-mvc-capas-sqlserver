@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webApi.Services.TypeConverters;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -14,7 +14,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddEducationData([FromBody] Models.EducationDatum education)
         {
-            business.EducationDataBL educationDataBL = new business.EducationDataBL();
+            Business_.EducationDataBL educationDataBL = new Business_.EducationDataBL();
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -38,9 +38,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEducationDataAsync()
+        public IActionResult GetEducationDataAsync()
         {
-            business.EducationDataBL educationDataBL = new business.EducationDataBL();
+            Business_.EducationDataBL educationDataBL = new Business_.EducationDataBL();
 
             var result = educationDataBL.GetEducationData();
 

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -13,7 +13,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPersonalReference([FromBody] Models.PersonalReference personalReference)
         {
-            business.PersonalReferenceBL personalReferenceBL = new business.PersonalReferenceBL();
+            Business_.PersonalReferenceBL personalReferenceBL = new Business_.PersonalReferenceBL();
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Models.PersonalReference, modelsBusiness.PersonalReference>();
@@ -34,9 +34,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPersonalReferenceAsync()
+        public IActionResult GetPersonalReferenceAsync()
         {
-            business.PersonalReferenceBL personalReferenceBL = new business.PersonalReferenceBL();
+            Business_.PersonalReferenceBL personalReferenceBL = new Business_.PersonalReferenceBL();
 
             var result = personalReferenceBL.GetPersonalReferences();
 

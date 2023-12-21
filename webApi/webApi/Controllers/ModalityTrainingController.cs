@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -12,7 +12,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddModalityTraining([FromBody] Models.ModalityTraining modalityTraining)
         {
-            business.ModalityTrainingBL modalityTrainingBL = new business.ModalityTrainingBL();
+            Business_.ModalityTrainingBL modalityTrainingBL = new Business_.ModalityTrainingBL();
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -34,9 +34,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetModalityTrainingAsync()
+        public IActionResult GetModalityTrainingAsync()
         {
-            business.ModalityTrainingBL modalityTrainingBL = new business.ModalityTrainingBL();
+            Business_.ModalityTrainingBL modalityTrainingBL = new Business_.ModalityTrainingBL();
 
             var result = modalityTrainingBL.GetModalityTraining();
 

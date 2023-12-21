@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using webApi.Services.TypeConverters;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -14,7 +14,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddExperienceData([FromBody] Models.ExperienceDatum experienceData)
         {
-            business.ExperienceDataBL experienceDataBL = new business.ExperienceDataBL();
+            Business_.ExperienceDataBL experienceDataBL = new Business_.ExperienceDataBL();
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -40,9 +40,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetExperienceDataAsync()
+        public IActionResult GetExperienceDataAsync()
         {
-            business.ExperienceDataBL experienceDataBL = new business.ExperienceDataBL();
+            Business_.ExperienceDataBL experienceDataBL = new Business_.ExperienceDataBL();
 
             var result = experienceDataBL.GetExperienceData();
 

@@ -13,7 +13,7 @@ public partial class PersonalDatum
 
     public int? Age { get; set; }
 
-    public DateTime BornDate { get; set; }
+    public DateTime? BornDate { get; set; }
 
     public string? BornPlace { get; set; }
 

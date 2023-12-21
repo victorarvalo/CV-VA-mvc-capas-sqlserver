@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using webApi.Services.TypeConverters;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -13,7 +13,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPersonalData([FromBody] Models.PersonalDatum personalData)
         {
-            business.PersonalDataBL personalDataBL = new business.PersonalDataBL();
+            Business_.PersonalDataBL personalDataBL = new Business_.PersonalDataBL();
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -37,9 +37,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPersonalDataAsync()
+        public IActionResult GetPersonalDataAsync()
         {
-            business.PersonalDataBL personalDataBL = new business.PersonalDataBL();
+            Business_.PersonalDataBL personalDataBL = new Business_.PersonalDataBL();
 
             var result = personalDataBL.GetPersonalData();
 

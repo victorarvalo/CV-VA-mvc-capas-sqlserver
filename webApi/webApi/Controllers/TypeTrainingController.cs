@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -12,7 +12,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddTypeTraining([FromBody] Models.TypeTraining typeTraining)
         {
-            business.TypeTrainingBL typeTrainingBL = new business.TypeTrainingBL();
+            Business_.TypeTrainingBL typeTrainingBL = new Business_.TypeTrainingBL();
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Models.TypeTraining, modelsBusiness.TypeTraining>();
@@ -33,9 +33,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTypeTrainingAsync()
+        public IActionResult GetTypeTrainingAsync()
         {
-            business.TypeTrainingBL typeTrainingBL = new business.TypeTrainingBL();
+            Business_.TypeTrainingBL typeTrainingBL = new Business_.TypeTrainingBL();
 
             var result = typeTrainingBL.GetTypeTraining();
 

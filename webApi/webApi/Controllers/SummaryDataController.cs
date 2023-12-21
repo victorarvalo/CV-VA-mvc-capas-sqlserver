@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using business = BusinessLayout.Business;
+using Business_ = BusinessLayout.Business;
 using modelsBusiness = BusinessLayout.Models;
 
 namespace webApi.Controllers
@@ -13,7 +13,7 @@ namespace webApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddSummaryData([FromBody] Models.SummaryDatum summary)
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
+            Business_.SummaryDataBL summaryDataBL = new Business_.SummaryDataBL();
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -35,9 +35,9 @@ namespace webApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSummaryDataAsync()
+        public IActionResult GetSummaryDataAsync()
         {
-            business.SummaryDataBL summaryDataBL = new business.SummaryDataBL();
+            Business_.SummaryDataBL summaryDataBL = new Business_.SummaryDataBL();
 
             var result = summaryDataBL.GetSummaryData();
 
