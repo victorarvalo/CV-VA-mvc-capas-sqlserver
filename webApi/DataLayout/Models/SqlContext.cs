@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace DataLayout.Models;
 
@@ -36,8 +37,14 @@ public partial class SqlContext : DbContext
     public virtual DbSet<TypeTraining> TypeTrainings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=tcp:hvvaserver.database.windows.net,1433;Initial Catalog=hvvaserver;Persist Security Info=False;User ID=CloudSA51b3dab5;Password=Aa1004794.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-9EGDTCA\\SQLEXPRESS;Initial Catalog=hvvaserver;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=False;",
+                builder => builder.EnableRetryOnFailure());
+        }
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
