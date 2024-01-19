@@ -19,14 +19,14 @@ export class ExperienceDataComponent implements OnInit{
   skillsDataSource: any[] = [];
   //displayColumns
   detailSummaryDisplayColumns = ['detail'];
-  skillsDisplayColumns = ['skil'];
+  skillsDisplayColumns = ['skill1'];
 
   constructor(){
 
   }
   
   ngOnInit(): void {
-    let startDate: string; 
+    /* let startDate: string; 
     let finishDate: string;
     if(this.experienceData.finishDate != null){
       var sfinishedDate: string[] = this.experienceData.finishDate.split("/");
@@ -39,9 +39,9 @@ export class ExperienceDataComponent implements OnInit{
       var startedDate: String = new Date(parseInt(sstartDate[2]),parseInt(sstartDate[1]),parseInt(sstartDate[0]))
       .toLocaleDateString('es-co',{year:'numeric',month:'long'});
       this.experienceData.startDate = startedDate.toString().toUpperCase();
-    }     
+    }   */   
 
-    this.detailSummaryDataSource = this.experienceData.detailSummary;
+    this.detailSummaryDataSource = this.experienceData.detailSummaries;
     this.skillsDataSource = this.experienceData.skills;
   }
 

@@ -6,7 +6,7 @@ namespace BusinessLayout.Business
 {
     public class ExperienceDataBL
     {
-        public List<Models.ExperienceDatum>? GetExperienceData()
+        public IOrderedEnumerable<Models.ExperienceDatum>? GetExperienceData()
         {
             try
             {
@@ -23,7 +23,8 @@ namespace BusinessLayout.Business
                     });
 
                     IMapper mapper = config.CreateMapper();
-                    return mapper.Map<List<dataModels.ExperienceDatum>, List<Models.ExperienceDatum>>(experiencesData);
+                    var result = mapper.Map<List<dataModels.ExperienceDatum>, List<Models.ExperienceDatum>>(experiencesData);
+                    return result.OrderByDescending(x => x.ExperienceDataId);
                 }
                 else
                 {

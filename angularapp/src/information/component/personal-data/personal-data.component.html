@@ -8,7 +8,7 @@
                 <tbody>
                     <tr>
                         <td [ngStyle]="backGroundClass(true)">Nombre: </td>
-                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.name}} {{data.lastName}}</td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.personalName}} {{data.lastname}}</td>
                     </tr>
                     <tr>
                         <td [ngStyle]="backGroundClass(false)">Edad: </td>
@@ -16,7 +16,7 @@
                     </tr>
                     <tr>
                         <td [ngStyle]="backGroundClass(true)">Fecha de Nacimiento: </td>
-                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.bornDate}}</td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.bornDate | date}}</td>
                     </tr>
                     <tr>
                         <td [ngStyle]="backGroundClass(false)">Lugar de Nacimiento: </td>
@@ -34,9 +34,9 @@
                         <td [ngStyle]="backGroundClass(true)">Teléfono: </td>
                         <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.celPhone}}</td>
                     </tr>
-                    <tr *ngFor="let mail of data.email;index as i" style="margin-bottom: 0%;padding: 0%;">
+                    <tr *ngFor="let mail of data.emails;index as i" style="margin-bottom: 0%;padding: 0%;">
                         <td [ngStyle]="backGroundClass(false)">Email{{i + 1}}: </td>
-                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{mail}}</td>
+                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{mail.email1}}</td>
                     </tr>
                 </tbody>
             </table>                    

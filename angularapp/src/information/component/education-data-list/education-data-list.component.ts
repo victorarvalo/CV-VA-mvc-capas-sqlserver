@@ -15,14 +15,14 @@ export class EducationDataListComponent implements OnInit{
   }
   ngOnInit(): void {
     this._educationData.getListPersonalData().subscribe((data: any[]) => {
-      data.forEach(element => {
+      /* data.forEach(element => {
         if(element.finishDate != null){
           var sfinishedDate: string[] = element.finishDate.split("/");
           var finishedDate: String = new Date(parseInt(sfinishedDate[2]),parseInt(sfinishedDate[1]),parseInt(sfinishedDate[0]))
           .toLocaleDateString('en-us',{year:'numeric'});
           element.finishDate = finishedDate.toString();
         }
-      });
+      }); */
       this.listEducationData = data;
       console.log(data);
     },
