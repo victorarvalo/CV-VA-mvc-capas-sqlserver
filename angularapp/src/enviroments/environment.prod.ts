@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    myAppUrl : "https://hvvamemoria.azurewebsites.net/"
+    myAppUrl : "https://webapihvva.azurewebsites.net/"
   };

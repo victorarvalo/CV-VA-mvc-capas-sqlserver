@@ -40,10 +40,10 @@ public partial class SqlContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-9EGDTCA\\SQLEXPRESS;Initial Catalog=HVVA;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False",
-                builder => builder.EnableRetryOnFailure());
-            //optionsBuilder.UseSqlServer("Server=tcp:hvvaserver.database.windows.net,1433;Initial Catalog=HVVA;Persist Security Info=False;User ID=CloudSAa46bb1fa;Password=victorarevalo1004.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-9EGDTCA\\SQLEXPRESS;Initial Catalog=HVVA;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False",
             //    builder => builder.EnableRetryOnFailure());
+            optionsBuilder.UseSqlServer("Server=tcp:hvvaserver.database.windows.net,1433;Initial Catalog=HVVA;Persist Security Info=False;User ID=CloudSAa46bb1fa;Password=victorarevalo1004.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+                builder => builder.EnableRetryOnFailure());
         }
     }
 

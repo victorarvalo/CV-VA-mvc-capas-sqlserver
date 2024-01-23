@@ -9,7 +9,7 @@ import { environment } from 'src/enviroments/environment';
 export class PersonalDataServiceService {
 
   private myAppUrl = environment.myAppUrl
-  private myApiUrl = "api/PersonalData"
+  private myApiUrl = "api/personaldata"
   constructor(private http: HttpClient) { }
 
   getListPersonalData():Observable<any>{
