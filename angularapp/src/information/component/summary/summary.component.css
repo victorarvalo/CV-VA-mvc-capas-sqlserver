@@ -1,0 +1,12 @@
+.mat-card{
+    background-color:rgba(220, 220, 220, 0.699);
+}
+
+.card-title{
+    text-align: center;
+    color: blue;
+}
+
+.card-content{
+    background-color:#80bdee;
+}

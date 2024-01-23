@@ -1,0 +1,25 @@
+.mat-card{
+    background-color:rgba(220, 220, 220, 0.699);
+}
+
+.mat-card-title{
+    color: blue;
+}
+
+.mat-card-subtitle{
+    color: black;
+}
+
+.matTable{
+    background-color:#80bdee;
+}
+
+.mat-column-detail{
+    color: black;
+    display: flex;
+}
+
+.mat-column-skill1{
+    color: black;
+    display:flex;
+}

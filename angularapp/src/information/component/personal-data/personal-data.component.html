@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="card-body" >
+      <h3 class="titulo text-center">INFORMACIÓN PERSONAL</h3>
+      <table class="table">
+        <tbody>
+        <tr *ngFor="let data of listPersonalData;">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(true)">Nombre: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.personalName}} {{data.lastname}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(false)">Edad: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{data.age}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(true)">Fecha de Nacimiento: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.bornDate | date}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(false)">Lugar de Nacimiento: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{data.bornPlace}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(true)">Documento de Identidad: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.idDocument}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(false)">Dirección: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{data.address}}</td>
+                    </tr>
+                    <tr>
+                        <td [ngStyle]="backGroundClass(true)">Teléfono: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(true)">{{data.celPhone}}</td>
+                    </tr>
+                    <tr *ngFor="let mail of data.emails;index as i" style="margin-bottom: 0%;padding: 0%;">
+                        <td [ngStyle]="backGroundClass(false)">Email{{i + 1}}: </td>
+                        <td class="text-start" [ngStyle]="backGroundClass(false)">{{mail.email1}}</td>
+                    </tr>
+                </tbody>
+            </table>                    
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

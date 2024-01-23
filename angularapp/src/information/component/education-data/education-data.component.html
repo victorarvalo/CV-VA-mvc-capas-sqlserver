@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-body">
+        <mat-card  class="mat-card">
+            <mat-card-header>
+                <div [ngStyle]="styles()" mat-card-avatar ></div>
+                <mat-card-title  class="mat-card-title">{{educationData.institution}}</mat-card-title>
+                <mat-card-subtitle  class="mat-card-subtitle">{{educationData.title}}</mat-card-subtitle>
+                <mat-card-subtitle  class="mat-card-subtitle">{{educationData.finishDate | date}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{educationData.summary}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
